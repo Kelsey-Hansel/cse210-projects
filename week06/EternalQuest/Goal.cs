@@ -18,7 +18,8 @@ public abstract class Goal
     public virtual string GetDetailsString()
     {
         
-        return "";
+
+        return;
     }
 
     public abstract string GetStringRepresentation();
@@ -30,7 +31,7 @@ public class SimpleGoal : Goal
 
     public SimpleGoal(string name, string description, string points) : base(name, description, points)
     {
-
+        _isComplete = false;
     }
 
     public override void RecordEvent()
@@ -74,9 +75,9 @@ public class EternalGoal : Goal
 
 public class ChecklistGoal : Goal
 {
-    private int _amountCompleted;
-    private int _target;
-    private int _bonus;
+    private int _amountCompleted = 0;
+    private int _target = 0;
+    private int _bonus = 0;
 
     public ChecklistGoal(string name, string description, string points, int target, int bonus) : base(name, description, points)
     {
@@ -91,7 +92,8 @@ public class ChecklistGoal : Goal
 
     public override bool IsComplete()
     {
-        return false;
+        bool isComplete = (_amountCompleted == _target);
+        return isComplete;
     }
 
     public override string GetDetailsString()
