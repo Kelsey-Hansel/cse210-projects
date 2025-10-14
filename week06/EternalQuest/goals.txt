@@ -1,0 +1,4 @@
+0
+SimpleGoal:Give talk|speak in sacrament|20|False
+EternalGoal:read scriptures|read 2 pages|30
+ChecklistGoal:temple attendance|attend the temple for a session|45|5000|5|0
